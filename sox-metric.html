@@ -1,0 +1,101 @@
+<script type="text/javascript">
+  (function () {
+    RED.nodes.registerType('sox-metric', {
+      category: 'network',
+      color: '#a6bbcf',
+      defaults: {
+        name: { value: "" },
+        url: { value: "", required: true },
+        titleCaption: { value: "" },
+        titleColor: { value: "" },
+        fontSize: { value: "" },
+      },
+      inputs: 0,
+      outputs: 1,
+      icon: "file.png",
+      label: function () {
+        return this.name || "sox-metric";
+      },
+      oneditprepare: function () {
+        console.log('debug')
+        var that = this;
+
+        var tabs = RED.tabs.create({
+          id: "func-tabs",
+          onchange: function (tab) {
+            $("#func-tabs-content").children().hide();
+            $("#" + tab.id).show();
+          }
+        });
+        tabs.addTab({
+          id: "func-tab-config",
+          iconClass: "fa fa-cog",
+          label: "DATABASE"
+        });
+        tabs.addTab({
+          id: "func-tab-options",
+          iconClass: "fa fa-cog",
+          label: "OPTIONS"
+        });
+
+        tabs.activateTab("func-tab-config");
+
+
+      },
+      oneditsave() {
+
+      },
+      oneditcancel: function () {
+
+      },
+      oneditresize: function (size) {
+
+      }
+    });
+  })()
+</script>
+
+<script type="text/html" data-template-name="sox-metric">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+
+  <div class="form-row func-tabs-row">
+    <ul style="min-width: 600px; margin-bottom: 20px;" id="func-tabs"></ul>
+  </div>
+
+  <div id="func-tabs-content" style="min-height: calc(100% - 95px);">
+  
+    <div id="func-tab-config" style="display:none">
+      <div class="form-row">
+        <label for="node-input-url"><i class="fa fa-globe"></i> <span>URL</span></label>
+        <input id="node-input-url" type="text" placeholder="/url">
+      </div>
+
+      <div class="form-row">
+        <label for="node-input-titleCaption"><i class="fa fa-tag"></i> Title Caption</label>
+        <input type="text" id="node-input-titleCaption" >
+      </div>
+
+      <div class="form-row">
+        <label for="node-input-titleColor"><i class="fa fa-tag"></i> Title Color</label>
+        <input type="color" id="node-input-titleColor" >
+      </div>
+
+      <div class="form-row">
+        <label for="node-input-fontSize"><i class="fa fa-tag"></i> Font Size</label>
+        <input type="text" id="node-input-fontSize" placeholder="User">
+      </div>
+    </div>
+
+    <div id="func-tab-options" style="display:none">
+      
+    </div>
+
+  </div>
+</script>
+
+<script type="text/html" data-help-name="sox-metric">
+  <p>A simple node that converts the message payloads into all sox-metric characters</p>
+</script>

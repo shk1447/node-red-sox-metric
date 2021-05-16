@@ -1,0 +1,39 @@
+{
+  "name": "node-red-sox-metric",
+  "version": "1.0.0",
+  "description": "",
+  "node-red": {
+    "nodes": {
+      "sox-table": "sox-metric.js"
+    }
+  },
+  "keywords": [
+    "node-red"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shk1447/node-red-sox-metric.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shk1447/node-red-sox-metric/issues"
+  },
+  "homepage": "https://github.com/shk1447/node-red-sox-metric#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "knex": "^0.95.4",
+    "mssql": "^6.3.1",
+    "mysql": "^2.18.1",
+    "on-headers": "^1.0.2",
+    "oracledb": "^5.1.0",
+    "pg": "^8.6.0",
+    "sqlite3": "^5.0.2"
+  }
+}
